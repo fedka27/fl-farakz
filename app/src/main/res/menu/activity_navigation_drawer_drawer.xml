@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_find_parts"
+            android:icon="@drawable/find_path_icon"
+            android:title="Найти запчасть" />
+        <item
+            android:id="@+id/nav_zayavka"
+            android:icon="@drawable/edit"
+            android:title="Оставить заявку" />
+
+        <item
+            android:id="@+id/nav_gmap"
+            android:icon="@drawable/googlemap"
+            android:title="Местоположение" />
+        <item
+            android:id="@+id/nav_shop"
+            android:icon="@drawable/icon"
+            android:title="О нас" />
+    </group>
+
+    <item android:title="Контакты">
+        <menu>
+            <item
+                android:id="@+id/nav_kontakti"
+                android:icon="@drawable/cards"
+                android:title="Контакты" />
+            <item
+                android:id="@+id/nav_vk"
+                android:icon="@drawable/vki"
+                android:title="Вконтакте" />
+            <item
+                android:id="@+id/nav_insta"
+                android:icon="@drawable/instagrammicon"
+                android:title="Instagram" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/nav_exit"
+        android:icon="@drawable/exit"
+        android:title="Выход" />
+
+</menu>

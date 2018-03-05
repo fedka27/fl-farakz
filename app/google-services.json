@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "252440937161",
+    "firebase_url": "https://faratest-b6ce8.firebaseio.com",
+    "project_id": "faratest-b6ce8",
+    "storage_bucket": "faratest-b6ce8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252440937161:android:86bcf08206b3d83f",
+        "android_client_info": {
+          "package_name": "kz.terah.projectfarakzm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252440937161-judb45sncmrngv2s84dr2i72nai1kljd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2mbNabhDrFRmPtgRysG55_SLhNMJj6ss"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
