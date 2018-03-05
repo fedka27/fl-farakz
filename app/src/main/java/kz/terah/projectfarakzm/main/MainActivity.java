@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity
                     new String[]{
                             android.Manifest.permission.CALL_PHONE}, 1001);
             Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:+77024111198"));
+            callIntent.setData(Uri.parse("tel:+77016102737"));
             if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
         if (requestCode == 1001) {
             if (resultCode == RESULT_OK) {
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:+77024111198"));
+                callIntent.setData(Uri.parse("tel:+77016102737"));
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_vk) {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/farakzkz")));
         } else if (id == R.id.nav_insta) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/terletskiya/")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/wwwfara_kz/")));
         } else if (id == R.id.nav_exit) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(context, FirstActivity.class));
