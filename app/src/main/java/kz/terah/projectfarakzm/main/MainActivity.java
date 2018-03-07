@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         TextView userName = navigationView.getHeaderView(0).findViewById(R.id.tVnameUser);
-        userName.setText(user.getDisplayName());
+        user.reload().addOnCompleteListener(task -> userName.setText(user.getDisplayName()));
     }
 
     @Override
