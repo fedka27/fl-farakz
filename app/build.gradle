@@ -5,14 +5,14 @@ android {
         debug {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
-            storeFile file('C:/Projects/Android/Main Farakz/keys/debug.keystore')
+            storeFile file('../keys/debug.keystore')
             storePassword 'android'
         }
     }
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
     defaultConfig {
-        applicationId "kz.terah.projectfarakzm"
+        applicationId "test.kz.terah.projectfarakzm"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1

@@ -1,4 +1,4 @@
-package kz.terah.projectfarakzm;
+package test.kz.terah.projectfarakzm;
 
 import android.app.Application;
 

@@ -1,27 +1,31 @@
 {
   "project_info": {
-    "project_number": "252440937161",
-    "firebase_url": "https://faratest-b6ce8.firebaseio.com",
-    "project_id": "faratest-b6ce8",
-    "storage_bucket": "faratest-b6ce8.appspot.com"
+    "project_number": "181800872674",
+    "firebase_url": "https://test-farakz.firebaseio.com",
+    "project_id": "test-farakz",
+    "storage_bucket": "test-farakz.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:252440937161:android:86bcf08206b3d83f",
+        "mobilesdk_app_id": "1:181800872674:android:bfaecde1bdf027af",
         "android_client_info": {
-          "package_name": "kz.terah.projectfarakzm"
+          "package_name": "test.kz.terah.projectfarakzm"
         }
       },
       "oauth_client": [
         {
-          "client_id": "252440937161-judb45sncmrngv2s84dr2i72nai1kljd.apps.googleusercontent.com",
+          "client_id": "181800872674-kvheleesk85bd9forl4kpdou0l5ft6k8.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "181800872674-kvheleesk85bd9forl4kpdou0l5ft6k8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB2mbNabhDrFRmPtgRysG55_SLhNMJj6ss"
+          "current_key": "AIzaSyCGNxRCnw5cEci-FUrcRCSFxY0J7X7_D28"
         }
       ],
       "services": {

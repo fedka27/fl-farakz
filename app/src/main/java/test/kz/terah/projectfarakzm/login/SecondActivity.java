@@ -1,14 +1,13 @@
-package kz.terah.projectfarakzm.login;
+package test.kz.terah.projectfarakzm.login;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import kz.terah.projectfarakzm.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -18,6 +17,8 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
+
+import kz.terah.projectfarakzm.R;
 
 public class SecondActivity extends AppCompatActivity implements OnVerificationStateChangedCallback, OnCompleteListener<AuthResult> {
     private FirebaseAuth auth;
@@ -79,8 +80,9 @@ public class SecondActivity extends AppCompatActivity implements OnVerificationS
     @Override
     public void onVerificationFailed(FirebaseException e) {
         e.printStackTrace();
-        startActivity(new Intent(this, FirstActivity.class));
-        finish();
+        Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//        startActivity(new Intent(this, FirstActivity.class));
+//        finish();
     }
 
     @Override

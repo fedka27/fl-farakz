@@ -1,4 +1,4 @@
-package kz.terah.projectfarakzm.main;
+package test.kz.terah.projectfarakzm.main;
 
 import android.Manifest;
 import android.content.Context;
@@ -19,13 +19,13 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 
-import kz.terah.projectfarakzm.ZayavkaActivity;
-import kz.terah.projectfarakzm.parts.FindPartsActivity;
-import kz.terah.projectfarakzm.KontaktiActivity;
-import kz.terah.projectfarakzm.MapsActivity;
-import kz.terah.projectfarakzm.OnasActivity;
+import test.kz.terah.projectfarakzm.ZayavkaActivity;
+import test.kz.terah.projectfarakzm.parts.FindPartsActivity;
+import test.kz.terah.projectfarakzm.KontaktiActivity;
+import test.kz.terah.projectfarakzm.MapsActivity;
+import test.kz.terah.projectfarakzm.OnasActivity;
 import kz.terah.projectfarakzm.R;
-import kz.terah.projectfarakzm.login.FirstActivity;
+import test.kz.terah.projectfarakzm.login.FirstActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

@@ -1,4 +1,4 @@
-package kz.terah.projectfarakzm.login;
+package test.kz.terah.projectfarakzm.login;
 
 import android.Manifest;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import kz.terah.projectfarakzm.main.MainActivity;
+import test.kz.terah.projectfarakzm.main.MainActivity;
 import kz.terah.projectfarakzm.R;
 import com.google.firebase.auth.FirebaseAuth;
 
