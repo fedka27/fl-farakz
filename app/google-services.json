@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "181800872674-do3sm5ajdh00vqb7ka2g58hbndturnec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "test.kz.terah.projectfarakzm",
+            "certificate_hash": "0fa696a59ce858404a201cfc1083658a975ae49d"
+          }
+        },
+        {
           "client_id": "181800872674-kvheleesk85bd9forl4kpdou0l5ft6k8.apps.googleusercontent.com",
           "client_type": 3
         },
@@ -33,8 +41,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "181800872674-kvheleesk85bd9forl4kpdou0l5ft6k8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

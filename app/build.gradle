@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        debug {
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-            storeFile file('../keys/debug.keystore')
-            storePassword 'android'
+        config {
+            keyAlias '1'
+            keyPassword '1'
+            storeFile file('../keys/test.jks')
+            storePassword '1'
         }
     }
     compileSdkVersion 27

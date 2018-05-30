@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import kz.terah.projectfarakzm.R;
+import test.kz.terah.projectfarakzm.R;
 
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 

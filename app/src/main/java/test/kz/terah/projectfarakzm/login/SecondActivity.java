@@ -18,7 +18,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-import kz.terah.projectfarakzm.R;
+import test.kz.terah.projectfarakzm.R;
 
 public class SecondActivity extends AppCompatActivity implements OnVerificationStateChangedCallback, OnCompleteListener<AuthResult> {
     private FirebaseAuth auth;
@@ -81,8 +81,8 @@ public class SecondActivity extends AppCompatActivity implements OnVerificationS
     public void onVerificationFailed(FirebaseException e) {
         e.printStackTrace();
         Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-//        startActivity(new Intent(this, FirstActivity.class));
-//        finish();
+        startActivity(new Intent(this, FirstActivity.class));
+        finish();
     }
 
     @Override

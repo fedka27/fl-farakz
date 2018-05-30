@@ -19,12 +19,12 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 
+import test.kz.terah.projectfarakzm.R;
 import test.kz.terah.projectfarakzm.ZayavkaActivity;
 import test.kz.terah.projectfarakzm.parts.FindPartsActivity;
 import test.kz.terah.projectfarakzm.KontaktiActivity;
 import test.kz.terah.projectfarakzm.MapsActivity;
 import test.kz.terah.projectfarakzm.OnasActivity;
-import kz.terah.projectfarakzm.R;
 import test.kz.terah.projectfarakzm.login.FirstActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
