@@ -4,9 +4,9 @@ android {
     signingConfigs {
         config {
             keyAlias '1'
-            keyPassword '1'
+            keyPassword '111111'
             storeFile file('../keys/test.jks')
-            storePassword '1'
+            storePassword '111111'
         }
     }
     compileSdkVersion 27
@@ -23,7 +23,13 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            debuggable false
+            signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            signingConfig signingConfigs.config
         }
     }
     compileOptions {
