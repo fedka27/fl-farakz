@@ -3,9 +3,9 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'fara'
+            keyAlias 'key0'
             keyPassword 'farakz'
-            storeFile file('../keys/farakz-release.jks')
+            storeFile file('../keys/fara-release2.jks')
             storePassword 'farakz'
         }
     }
