@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 
 import kz.terah.projectfarakzm.MapsActivity;
-import test.kz.terah.projectfarakzm.R;
+import kz.terah.projectfarakzm.R;
 import kz.terah.projectfarakzm.ZayavkaActivity;
 import kz.terah.projectfarakzm.parts.FindPartsActivity;
 import kz.terah.projectfarakzm.KontaktiActivity;

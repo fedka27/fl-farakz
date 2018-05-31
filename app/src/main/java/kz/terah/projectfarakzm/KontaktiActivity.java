@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-import test.kz.terah.projectfarakzm.R;
+import kz.terah.projectfarakzm.R;
 
 public class KontaktiActivity extends AppCompatActivity {
 

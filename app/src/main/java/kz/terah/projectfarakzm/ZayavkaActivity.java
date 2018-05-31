@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import test.kz.terah.projectfarakzm.R;
+import kz.terah.projectfarakzm.R;
 
 public class ZayavkaActivity extends AppCompatActivity {
     EditText editText1;

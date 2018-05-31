@@ -7,15 +7,15 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
-        android:name="kz.terah.projectfarakzm.App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="kz.terah.projectfarakzm.login.ThirdActivity" />
-        <activity android:name="kz.terah.projectfarakzm.login.SecondActivity" />
-        <activity android:name="kz.terah.projectfarakzm.login.FirstActivity">
+        <activity android:name=".login.ThirdActivity" />
+        <activity android:name=".login.SecondActivity" />
+        <activity android:name=".login.FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,30 +23,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="kz.terah.projectfarakzm.main.MainActivity"
+            android:name=".main.MainActivity"
             android:label="@string/title_activity_navigation_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="kz.terah.projectfarakzm.ZayavkaActivity"
-            android:parentActivityName="kz.terah.projectfarakzm.main.MainActivity">
+            android:name=".ZayavkaActivity"
+            android:parentActivityName=".main.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="kz.terah.projectfarakzm.main.MainActivity" />
+                android:value=".main.MainActivity" />
         </activity>
         <activity
-            android:name="kz.terah.projectfarakzm.OnasActivity"
-            android:parentActivityName="kz.terah.projectfarakzm.main.MainActivity">
+            android:name=".OnasActivity"
+            android:parentActivityName=".main.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="kz.terah.projectfarakzm.main.MainActivity" />
+                android:value=".main.MainActivity" />
         </activity>
 
         <activity
-            android:name="kz.terah.projectfarakzm.KontaktiActivity"
-            android:parentActivityName="kz.terah.projectfarakzm.main.MainActivity">
+            android:name=".KontaktiActivity"
+            android:parentActivityName=".main.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="kz.terah.projectfarakzm.main.MainActivity" />
+                android:value=".main.MainActivity" />
         </activity>
 
         <meta-data
@@ -54,20 +54,20 @@
             android:value="AIzaSyDsgBUBo7Pr0BKIcuigi5yDv3I-kmsDHgk" />
 
         <activity
-            android:name="kz.terah.projectfarakzm.MapsActivity"
+            android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
-            android:parentActivityName="kz.terah.projectfarakzm.main.MainActivity">
+            android:parentActivityName=".main.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="kz.terah.projectfarakzm.main.MainActivity" />
+                android:value=".main.MainActivity" />
         </activity>
 
         <activity
-            android:name="kz.terah.projectfarakzm.parts.FindPartsActivity"
-            android:parentActivityName="kz.terah.projectfarakzm.main.MainActivity">
+            android:name=".parts.FindPartsActivity"
+            android:parentActivityName=".main.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="kz.terah.projectfarakzm.main.MainActivity" />
+                android:value=".main.MainActivity" />
         </activity>
     </application>
 

@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import kz.terah.projectfarakzm.main.MainActivity;
-import test.kz.terah.projectfarakzm.R;
+import kz.terah.projectfarakzm.R;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

@@ -18,7 +18,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-import test.kz.terah.projectfarakzm.R;
+import kz.terah.projectfarakzm.R;
 
 public class SecondActivity extends AppCompatActivity implements OnVerificationStateChangedCallback, OnCompleteListener<AuthResult> {
     private FirebaseAuth auth;
