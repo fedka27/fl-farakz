@@ -1,8 +1,10 @@
-package test.kz.terah.projectfarakzm;
+package kz.terah.projectfarakzm;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+
+import test.kz.terah.projectfarakzm.R;
 
 
 public class OnasActivity extends AppCompatActivity {

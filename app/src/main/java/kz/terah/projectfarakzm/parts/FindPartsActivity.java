@@ -1,4 +1,4 @@
-package test.kz.terah.projectfarakzm.parts;
+package kz.terah.projectfarakzm.parts;
 
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;

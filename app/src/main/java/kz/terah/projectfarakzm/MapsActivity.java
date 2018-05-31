@@ -1,4 +1,4 @@
-package test.kz.terah.projectfarakzm;
+package kz.terah.projectfarakzm;
 
 
 import android.content.Intent;
@@ -16,6 +16,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import test.kz.terah.projectfarakzm.R;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 

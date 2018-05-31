@@ -1,4 +1,4 @@
-package test.kz.terah.projectfarakzm;
+package kz.terah.projectfarakzm;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import test.kz.terah.projectfarakzm.R;
 
 public class ZayavkaActivity extends AppCompatActivity {
     EditText editText1;

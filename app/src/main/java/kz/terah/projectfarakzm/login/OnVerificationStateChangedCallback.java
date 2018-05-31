@@ -1,4 +1,4 @@
-package test.kz.terah.projectfarakzm.login;
+package kz.terah.projectfarakzm.login;
 
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.PhoneAuthCredential;

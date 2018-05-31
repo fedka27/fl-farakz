@@ -1,4 +1,4 @@
-package test.kz.terah.projectfarakzm.login;
+package kz.terah.projectfarakzm.login;
 
 import android.content.Intent;
 import android.os.Bundle;
