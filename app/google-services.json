@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "932785685929-1v155dn8rc15m5dee9gq8h1aju8l2et2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kz.terah.projectfarakzm",
+            "certificate_hash": "69e8c379da97a4185a24513c4c0e845b5c840947"
+          }
+        },
+        {
+          "client_id": "932785685929-756052i0sq2djviul03g3re14u6jka5n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kz.terah.projectfarakzm",
+            "certificate_hash": "03dd70b53bcb59895a16f3e309682cdd1ef37854"
+          }
+        },
+        {
           "client_id": "932785685929-gfim96el148b1rqad9n548rr68p1559h.apps.googleusercontent.com",
           "client_type": 3
         },
@@ -33,8 +49,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "932785685929-gfim96el148b1rqad9n548rr68p1559h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
