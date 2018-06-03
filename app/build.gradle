@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
+        //Конфиг для релизной сборки
         config {
             keyAlias 'key0'
             keyPassword 'farakz'
@@ -9,6 +10,8 @@ android {
             storePassword 'farakz'
         }
     }
+
+    //Версии компиляции
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
     defaultConfig {
@@ -17,9 +20,12 @@ android {
         targetSdkVersion 27
         versionCode 2
         versionName "1.1"
+        //Раннер для тестирования
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //Поддержка векторных картинок
         vectorDrawables.useSupportLibrary = true
     }
+    //Настройка сборок приложения ( дебажная и релизная )
     buildTypes {
         release {
             minifyEnabled false
@@ -32,21 +38,23 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    //Некоторые библиотеки еще используют старые версии сборок,
+    //приходится отключать разного рода проверки для релизной сборки
     aaptOptions {
         cruncherEnabled = false
     }
     lintOptions {
         checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
         abortOnError false
     }
+    //Используемая версия java
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
 }
 
+//Подключаемые библиотеки
 dependencies {
     final SUPPORT_LIBRARY_VERSION = '27.+'
     final PLAY_SERVICE = '11.8.0'
