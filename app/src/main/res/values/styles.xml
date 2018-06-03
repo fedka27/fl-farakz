@@ -1,20 +1,27 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Темы приложения указываются из AndroidManifest.xml -->
+
+    <!-- Общая тема приложения -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+        <!-- Основной цвет приложения -->
         <item name="colorPrimary">@color/primary</item>
+        <!-- Вторичный цвет приложения - чуть темнее-->
         <item name="colorPrimaryDark">@color/primary_dark</item>
+        <!-- Цвет кнопок действий, виджетов требующий действия приложения - дефолтный-->
         <item name="colorAccent">@color/accent</item>
     </style>
 
+    <!-- Используется как тема для экрана - без стандартного тулбара -->
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!-- Тема для тулбара - поддержка старых версий андроида -->
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <!-- Тема для меню тулбара - поддержка старых версий андроида -->
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
