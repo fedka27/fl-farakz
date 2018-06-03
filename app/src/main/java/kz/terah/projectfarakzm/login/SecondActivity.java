@@ -30,20 +30,24 @@ public class SecondActivity extends AppCompatActivity implements OnVerificationS
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Подключение разметки
         setContentView(R.layout.activity_second);
 
+        //Инициализация firebase
         auth = FirebaseAuth.getInstance();
         verifyProvider = PhoneVerifyProvider.getInstance(this);
 
-
+        //Получение номера телефона с пре. экрана
         String phoneNumber = getIntent().getStringExtra("phone");
 
+        //Отправка запроса на вход через телефон
         PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber, 60, TimeUnit.SECONDS, this, verifyProvider);
 
         codeText = findViewById(R.id.editText);
 
     }
 
+    //Нажатие на "Авторизоваться"
     public void onSendCode(View v) {
         final String code = codeText.getText().toString();
         if (code.isEmpty()) {
@@ -54,6 +58,7 @@ public class SecondActivity extends AppCompatActivity implements OnVerificationS
         auth.signInWithCredential(credential).addOnCompleteListener(this, this);
     }
 
+    //Нажатие на "Отправить код повторно"
     public void onResendVerify(View v) {
         if (token != null)
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -66,11 +71,13 @@ public class SecondActivity extends AppCompatActivity implements OnVerificationS
     }
 
     @Override
+    //Успешная проверка номера
     public void onVerificationCompleted(PhoneAuthCredential credential) {
         auth.signInWithCredential(credential).addOnCompleteListener(this, this);
     }
 
     @Override
+    //Когда код отправлен на номер
     public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken token) {
         mVerificationId = verificationId;
         this.token = token;
@@ -78,6 +85,7 @@ public class SecondActivity extends AppCompatActivity implements OnVerificationS
 
 
     @Override
+    //Ошибка при отправке номера для проверки - открыть первый экран
     public void onVerificationFailed(FirebaseException e) {
         e.printStackTrace();
         Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
@@ -86,6 +94,8 @@ public class SecondActivity extends AppCompatActivity implements OnVerificationS
     }
 
     @Override
+    //Успешная проверка кода и номера
+    //Открыть следующий экран
     public void onComplete(@NonNull Task<AuthResult> task) {
         if (task.isSuccessful()) {
             startActivity(new Intent(this, ThirdActivity.class));

@@ -1,16 +1,14 @@
 package kz.terah.projectfarakzm.parts;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import kz.terah.projectfarakzm.R;
 
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
@@ -23,6 +21,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import kz.terah.projectfarakzm.R;
 
 public class FindPartsActivity extends AppCompatActivity {
 
@@ -40,6 +40,7 @@ public class FindPartsActivity extends AppCompatActivity {
 
 
     Runnable run = () -> {
+        //Индикатор загрузки
         progressBar.setVisibility(View.GONE);
         resultText.setVisibility(View.VISIBLE);
     };
@@ -47,8 +48,11 @@ public class FindPartsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Подключение разметки
         setContentView(R.layout.activity_find_parts);
 
+        //Заголовок экрана
         setTitle("Поиск запчастей");
 
         handler = new Handler();
@@ -59,6 +63,7 @@ public class FindPartsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //Поиск элементов из разметки
         autoCompany = findViewById(R.id.autoCompany);
         autoMark = findViewById(R.id.autoMark);
         autoParts = findViewById(R.id.autoParts);
@@ -80,35 +85,44 @@ public class FindPartsActivity extends AppCompatActivity {
         autoMark.setEnabled(false);
         autoParts.setEnabled(false);
 
-
+        //Парсинг json файла -> app/src/assests расположение
         data = readJSONFromAsset("auto.json");
         final List<String> companys = new ArrayList<>();
         if (data != null) {
+            //Проход по всем элементам
             final Iterator<String> keys = data.keys();
-            while (keys.hasNext())
+            while (keys.hasNext()) {
+                //Добавление всех "ключей" - названий марок автомобилей в список ( Honda, Toyota и т.д. )
                 companys.add(keys.next());
+            }
         }
 
+        //Адаптер выпадающего списка компаний-названий авто
         final ArrayAdapter itemAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, companys);
         autoCompany.setAdapter(itemAdapter);
         autoCompany.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 autoMark.setEnabled(true);
+                //Нажатие на элемент компании
                 final String itemAtPosition = (String) parent.getItemAtPosition(position);
+                //Проверка! Есть ли марки авто у данной компании
                 try {
                     final Iterator<String> keys = data.getJSONObject(itemAtPosition).getJSONObject("marks").keys();
                     final List<String> marks = new ArrayList<>();
                     if (keys != null) {
+                        //Отобразить марки
                         while (keys.hasNext())
                             marks.add(keys.next());
                         final ArrayAdapter marksAdapter = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_dropdown_item_1line, marks);
                         autoMark.setAdapter(marksAdapter);
                     }
                 } catch (JSONException e) {
+                    //Марок нет - вывести в лог сообщение и продолжить работу приложения
                     e.printStackTrace();
                 }
 
+                //Отключить индикатор загрузки
                 autoParts.setEnabled(false);
                 autoParts.setAdapter(null);
                 resultText.setVisibility(View.GONE);
@@ -118,6 +132,7 @@ public class FindPartsActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                //Когда ни один элемент из компаний не выбран, отключить индикатор загрузки и удалить все элементы из мписка
                 autoParts.setEnabled(false);
                 autoParts.setAdapter(null);
                 autoMark.setEnabled(false);
@@ -128,11 +143,13 @@ public class FindPartsActivity extends AppCompatActivity {
             }
         });
 
+        //Нажатие на марку
         autoMark.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 autoParts.setEnabled(true);
                 final String itemAtPosition = (String) parent.getItemAtPosition(position);
+                //У марки могут быть запчасти
                 try {
                     final JSONArray jsonArray = data.getJSONObject((String) autoCompany.getSelectedItem()).getJSONObject("marks").getJSONObject(itemAtPosition).getJSONArray("parts");
                     final List<String> marks = new ArrayList<>();
@@ -141,12 +158,17 @@ public class FindPartsActivity extends AppCompatActivity {
                         for (int i = 0; i < len; i++) {
                             marks.add(jsonArray.getString(i));
                         }
+
+                        //Добавить запчасти в список
                         final ArrayAdapter marksAdapter = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_dropdown_item_1line, marks);
                         autoParts.setAdapter(marksAdapter);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    //Ошибка - вывести в лог и продолжить работу
                 }
+
+                //Отключить индикатоор загрузки
                 resultText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
                 handler.removeCallbacks(run);
@@ -154,6 +176,7 @@ public class FindPartsActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                //Ничего не выбрано - отключить список и загрузку
                 autoParts.setEnabled(false);
                 autoParts.setAdapter(null);
                 resultText.setVisibility(View.GONE);
@@ -162,9 +185,11 @@ public class FindPartsActivity extends AppCompatActivity {
             }
         });
 
+        //Нажатие на запчасть
         autoParts.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //Ничего далее не делать
                 resultText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
                 handler.removeCallbacks(run);
@@ -172,6 +197,7 @@ public class FindPartsActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                //Ничего далее не делать
                 resultText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
                 handler.removeCallbacks(run);
@@ -180,11 +206,13 @@ public class FindPartsActivity extends AppCompatActivity {
 
     }
 
+    //Нажатие из разметки - запустить поиск по запчастям
     public void onResultFindParts(View v) {
         progressBar.setVisibility(View.VISIBLE);
         handler.postDelayed(run, 3000);
     }
 
+    //Чтение json файла из ассетов
     public JSONObject readJSONFromAsset(String path) {
         try (InputStream is = getAssets().open(path)) {
             int size = is.available();

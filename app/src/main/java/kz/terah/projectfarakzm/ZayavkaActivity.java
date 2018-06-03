@@ -1,15 +1,13 @@
 package kz.terah.projectfarakzm;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
-
-import kz.terah.projectfarakzm.R;
 
 public class ZayavkaActivity extends AppCompatActivity {
     EditText editText1;
@@ -22,8 +20,11 @@ public class ZayavkaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Подключение разметки
         setContentView(R.layout.activity_zayavka);
 
+            //Поиск виджетов
             editText1 = findViewById(R.id.editText1);
             editText2 = findViewById(R.id.editText2);
             editText3 =  findViewById(R.id.editText3);
@@ -31,6 +32,8 @@ public class ZayavkaActivity extends AppCompatActivity {
             buttonEmail =  findViewById(R.id.buttonEmail);
 
             buttonEmail.setOnClickListener(v -> {
+                //Обработка нажатия
+                //Посылка запроса на отправку сообщение через email
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setType("message/rfc822");
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{
