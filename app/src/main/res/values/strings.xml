@@ -8,7 +8,11 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">Map</string>
 
-
     <string name="title_activity_login">Авторизация</string>
+
+    <string name="activity_find_parts_available">Данная запчасть имеется в наличии</string>
+    <string name="activity_find_parts_unavailable">Данной запчасти нет в наличии</string>
+    <string name="activity_find_parts_request">Заказать</string>
+    <string name="activity_request_template_message_part_">Деталь для заказа: %1$s, марка авто: %2$s, модель авто: %3$s</string>
 
 </resources>

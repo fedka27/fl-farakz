@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -23,6 +24,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import kz.terah.projectfarakzm.R;
+import kz.terah.projectfarakzm.ZayavkaActivity;
+import kz.terah.projectfarakzm.models.CarPart;
 
 public class FindPartsActivity extends AppCompatActivity {
 
@@ -34,14 +37,28 @@ public class FindPartsActivity extends AppCompatActivity {
 
     TextView resultText;
 
+    Button buyButton;
+
     JSONObject data;
 
     Handler handler;
 
+    Runnable runnable = () -> {
+        //Получить выбранную запчасть из списка
+        String part = (String) autoParts.getSelectedItem();
 
-    Runnable run = () -> {
-        //Индикатор загрузки
+        boolean isAvailablePart = availablePart(part);
+
+        //Показать сообщение - есть ли деталь
+        resultText.setText(isAvailablePart ? R.string.activity_find_parts_available : R.string.activity_find_parts_unavailable);
+
+        //Сделать видимой кнопку заказа, если есть деталь, иначе - скрыть
+        buyButton.setVisibility(isAvailablePart ? View.VISIBLE : View.GONE);
+
+        //Скрыть индикатор загрузки
         progressBar.setVisibility(View.GONE);
+
+        //Показать текст результата
         resultText.setVisibility(View.VISIBLE);
     };
 
@@ -57,7 +74,6 @@ public class FindPartsActivity extends AppCompatActivity {
 
         handler = new Handler();
 
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -69,6 +85,7 @@ public class FindPartsActivity extends AppCompatActivity {
         autoParts = findViewById(R.id.autoParts);
         progressBar = findViewById(R.id.progressBar2);
         resultText = findViewById(R.id.resultText);
+        buyButton = findViewById(R.id.buy_button);
 
         autoCompany.setTitle("Выбери производителя");
         autoMark.setTitle("Выбери марку");
@@ -127,7 +144,7 @@ public class FindPartsActivity extends AppCompatActivity {
                 autoParts.setAdapter(null);
                 resultText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
-                handler.removeCallbacks(run);
+                handler.removeCallbacks(runnable);
             }
 
             @Override
@@ -139,7 +156,7 @@ public class FindPartsActivity extends AppCompatActivity {
                 autoMark.setAdapter(null);
                 resultText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
-                handler.removeCallbacks(run);
+                handler.removeCallbacks(runnable);
             }
         });
 
@@ -171,7 +188,7 @@ public class FindPartsActivity extends AppCompatActivity {
                 //Отключить индикатоор загрузки
                 resultText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
-                handler.removeCallbacks(run);
+                handler.removeCallbacks(runnable);
             }
 
             @Override
@@ -181,7 +198,7 @@ public class FindPartsActivity extends AppCompatActivity {
                 autoParts.setAdapter(null);
                 resultText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
-                handler.removeCallbacks(run);
+                handler.removeCallbacks(runnable);
             }
         });
 
@@ -189,10 +206,10 @@ public class FindPartsActivity extends AppCompatActivity {
         autoParts.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //Ничего далее не делать
+                //Прервать загрузку
                 resultText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
-                handler.removeCallbacks(run);
+                handler.removeCallbacks(runnable);
             }
 
             @Override
@@ -200,19 +217,37 @@ public class FindPartsActivity extends AppCompatActivity {
                 //Ничего далее не делать
                 resultText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
-                handler.removeCallbacks(run);
+                handler.removeCallbacks(runnable);
             }
         });
 
     }
 
-    //Нажатие из разметки - запустить поиск по запчастям
-    public void onResultFindParts(View v) {
-        progressBar.setVisibility(View.VISIBLE);
-        handler.postDelayed(run, 3000);
+    //Заказать деталь
+    public void onBuyPartClick(View view) {
+        String carModel = (String) autoCompany.getSelectedItem();
+        String carMark = (String) autoMark.getSelectedItem();
+        String part = (String) autoParts.getSelectedItem();
+
+        ZayavkaActivity.start(this, new CarPart(part, carModel, carMark));
     }
 
+    //Нажатие из разметки - запустить поиск по запчастям
+    public void onResultFindParts(View v) {
+        //Показать индикатор загрузки
+        progressBar.setVisibility(View.VISIBLE);
+
+        //Начать поиск детали
+        handler.postDelayed(runnable, 3000);
+    }
+
+    private boolean availablePart(String part) {
+        //Проверить запчасть на наличие
+        if (part.equals("Поворотник") || part.equals("Капот")) return false;
+        return true;
+    }
     //Чтение json файла из ассетов
+
     public JSONObject readJSONFromAsset(String path) {
         try (InputStream is = getAssets().open(path)) {
             int size = is.available();

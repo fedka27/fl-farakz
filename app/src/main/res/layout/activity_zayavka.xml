@@ -79,7 +79,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/messageEditText"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_alignParentRight="true"
@@ -117,7 +117,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText5"
+            app:layout_constraintTop_toBottomOf="@+id/messageEditText"
             app:layout_constraintVertical_bias="0.124" />
 
 
