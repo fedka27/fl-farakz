@@ -43,9 +43,9 @@ public class PopularActivity extends AppCompatActivity {
     }
 
     private void initPopularList() {
-        popularList.add(new Popular(R.drawable.fara_mers, "Фара", "Фара левая для Mercedes"));
-        popularList.add(new Popular(R.drawable.kapot_mers, "Капот", "Капот чёрный для Mercedes"));
-        popularList.add(new Popular(R.drawable.fara_volks, "Фара", "Фара левая для Volkswagen"));
+        popularList.add(new Popular(R.drawable.fara_mers, "Фара", "Фара левая для Mercedes\nМодель: G 65 AMG\nЦена: 20000 тг."));
+        popularList.add(new Popular(R.drawable.kapot_mers, "Капот", "Капот чёрный для Mercedes\nМодель: G 65 AMG\nЦена: 25000 тг."));
+        popularList.add(new Popular(R.drawable.fara_volks, "Фара", "Фара левая для Volkswagen\nМодель: Polo\nЦена 10000 тг"));
 
         popularAdapter.setPopularList(popularList);
     }
