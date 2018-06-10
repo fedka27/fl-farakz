@@ -14,5 +14,8 @@
     <string name="activity_find_parts_unavailable">Данной запчасти нет в наличии</string>
     <string name="activity_find_parts_request">Заказать</string>
     <string name="activity_request_template_message_part_">Деталь для заказа: %1$s, марка авто: %2$s, модель авто: %3$s</string>
+    <string name="activity_request_message_before_send">Вы выбрали деталь для предварительного заказа. Срок поставки в магазин 3&#8211;7 дней. С Вами свяжутся поздее.\nСпасибо!</string>
+    <string name="action_ok">Ок</string>
+    <string name="dialog_warning">Внимание</string>
 
 </resources>

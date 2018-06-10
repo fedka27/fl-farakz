@@ -52,8 +52,8 @@ public class FindPartsActivity extends AppCompatActivity {
         //Показать сообщение - есть ли деталь
         resultText.setText(isAvailablePart ? R.string.activity_find_parts_available : R.string.activity_find_parts_unavailable);
 
-        //Сделать видимой кнопку заказа, если есть деталь, иначе - скрыть
-        buyButton.setVisibility(isAvailablePart ? View.VISIBLE : View.GONE);
+        //Сделать видимой кнопку заказа, если нет детали, иначе - скрыть
+        buyButton.setVisibility(!isAvailablePart ? View.VISIBLE : View.GONE);
 
         //Скрыть индикатор загрузки
         progressBar.setVisibility(View.GONE);
@@ -85,7 +85,7 @@ public class FindPartsActivity extends AppCompatActivity {
         autoParts = findViewById(R.id.autoParts);
         progressBar = findViewById(R.id.progressBar2);
         resultText = findViewById(R.id.resultText);
-        buyButton = findViewById(R.id.buy_button);
+        buyButton = findViewById(R.id.request_button);
 
         autoCompany.setTitle("Выбери производителя");
         autoMark.setTitle("Выбери марку");
@@ -209,6 +209,7 @@ public class FindPartsActivity extends AppCompatActivity {
                 //Прервать загрузку
                 resultText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
+                buyButton.setVisibility(View.GONE);
                 handler.removeCallbacks(runnable);
             }
 
@@ -216,6 +217,7 @@ public class FindPartsActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
                 //Ничего далее не делать
                 resultText.setVisibility(View.GONE);
+                buyButton.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
                 handler.removeCallbacks(runnable);
             }

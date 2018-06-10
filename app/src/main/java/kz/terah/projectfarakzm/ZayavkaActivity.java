@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Button;
@@ -21,7 +22,7 @@ public class ZayavkaActivity extends AppCompatActivity {
     EditText editText3;
     EditText messageEditText;
     Button buttonEmail;
-
+    @Nullable CarPart carPart;
 
     public static void start(Context context) {
         start(context, null);
@@ -50,7 +51,13 @@ public class ZayavkaActivity extends AppCompatActivity {
         buttonEmail.setOnClickListener(v -> {
             //Обработка нажатия
             //Посылка запроса на отправку сообщение через email
-            sendEmailRequest();
+
+            //Если запрос идет по детали которой нет - показать сообщение перед отправкой
+            if (carPart != null) {
+                showMessageForRequestAndSendToEmail();
+            } else {
+                sendEmailRequest();
+            }
         });
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -63,12 +70,21 @@ public class ZayavkaActivity extends AppCompatActivity {
 
     private void initMessageForBuyPart() {
         if (getIntent().hasExtra(EXTRA_PART_FOR_BUY_NULLABLE)) {
-            CarPart carPart = (CarPart) getIntent().getSerializableExtra(EXTRA_PART_FOR_BUY_NULLABLE);
+            carPart = (CarPart) getIntent().getSerializableExtra(EXTRA_PART_FOR_BUY_NULLABLE);
             messageEditText.setText(getString(R.string.activity_request_template_message_part_,
                     carPart.getPart(),
                     carPart.getCarMark(),
                     carPart.getCarModel()));
         }
+    }
+
+    private void showMessageForRequestAndSendToEmail() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.dialog_warning)
+                .setMessage(R.string.activity_request_message_before_send)
+                .setPositiveButton(R.string.action_ok,
+                        (dialogInterface, i) -> sendEmailRequest())
+                .show();
     }
 
     private void sendEmailRequest() {
