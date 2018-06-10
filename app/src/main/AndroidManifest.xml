@@ -71,6 +71,14 @@
                 android:value=".main.MainActivity" />
         </activity>
 
+        <activity
+            android:name=".popular.PopularActivity"
+            android:parentActivityName=".main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".main.MainActivity" />
+        </activity>
+
         <!--Ключ для гугл карт -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"

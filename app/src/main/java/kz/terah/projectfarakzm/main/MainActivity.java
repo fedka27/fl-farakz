@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 import kz.terah.projectfarakzm.KontaktiActivity;
 import kz.terah.projectfarakzm.MapsActivity;
 import kz.terah.projectfarakzm.OnasActivity;
+import kz.terah.projectfarakzm.popular.PopularActivity;
 import kz.terah.projectfarakzm.R;
 import kz.terah.projectfarakzm.ZayavkaActivity;
 import kz.terah.projectfarakzm.login.FirstActivity;
@@ -120,6 +121,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(context, MapsActivity.class));
         } else if (id == R.id.nav_shop) {
             startActivity(new Intent(context, OnasActivity.class));
+        } else if (id == R.id.nav_popular) {
+            startActivity(new Intent(context, PopularActivity.class));
         } else if (id == R.id.nav_kontakti) {
             startActivity(new Intent(context, KontaktiActivity.class));
         } else if (id == R.id.nav_vk) {

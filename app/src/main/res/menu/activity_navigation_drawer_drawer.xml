@@ -20,6 +20,11 @@
             android:id="@+id/nav_shop"
             android:icon="@drawable/icon"
             android:title="О нас" />
+        <item
+            android:id="@+id/nav_popular"
+            android:icon="@drawable/ic_popular"
+            android:title="Популярное" />
+
     </group>
 
     <item android:title="Контакты">
